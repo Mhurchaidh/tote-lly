@@ -1,0 +1,2 @@
+class StoreListingsController < ApplicationController
+end
