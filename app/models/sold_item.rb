@@ -1,3 +1,3 @@
 class SoldItem < ApplicationRecord
-  belongs_to :listing_id
+  belongs_to :listing
 end

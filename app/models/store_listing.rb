@@ -1,4 +1,4 @@
 class StoreListing < ApplicationRecord
-  belongs_to :store_id
-  belongs_to :listing_id
+  belongs_to :store
+  belongs_to :listing
 end
