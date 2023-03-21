@@ -1,4 +1,4 @@
 class ListingSite < ApplicationRecord
-  belongs_to :listing_id
-  belongs_to :site_id
+  belongs_to :listing
+  belongs_to :site
 end
