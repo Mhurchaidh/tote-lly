@@ -4,6 +4,8 @@ import { UserContext } from './context/user'
 import { Routes, Route } from 'react-router-dom'
 import Login from './components/Login'
 import HomePage from './components/HomePage'
+import SoldItems from './components/SoldItemsPage'
+import Listings from './components/Listings'
 
 function App() {
   const [user, setUser] = useContext(UserContext);
@@ -20,7 +22,10 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={!user ? <Login/> : <HomePage/>}/>
+      <Route path='/' element={!user ? <Login/> : <HomePage/>}>
+        <Route path='listings' element={<Listings/>}/>
+        <Route path='sold-items' element={<SoldItems/>}/>
+      </Route>
     </Routes>
   )
 }
