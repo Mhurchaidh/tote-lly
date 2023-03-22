@@ -5,7 +5,9 @@
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #ebebeb;
+  /* background-color: #f1f0f0; */
+  background-color: #f3f3f3;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -49,6 +51,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   justify-self: center;
+  max-height: 2rem;
 }
 button:hover {
   border-color: #612C55;

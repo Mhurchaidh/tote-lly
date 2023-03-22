@@ -1,0 +1,2 @@
+class UserSitesController < ApplicationController
+end
