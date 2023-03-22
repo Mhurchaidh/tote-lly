@@ -8,6 +8,7 @@ import { StoreContext } from "../context/store";
 import { CategoryContext } from "../context/category";
 import { FilterContext } from "../context/filter";
 import Logo from './Logo';
+import NewListing from "./NewListing";
 
 function HomePage() {
 
@@ -19,17 +20,13 @@ function HomePage() {
     const [stores, setStores] = useContext(StoreContext)
     const [showOptions, setShowOptions] = useState(false)
     const [filter, setFilter] = useContext(FilterContext)
+    const [newListing, setNewListing] = useState(false)
 
     useEffect(() => {
         fetch('/api/listings')
         .then(resp => resp.json())
         .then(listings => setListings(listings))
-        // .then(resp => console.log(resp))
-        
-        
-    }, [])
 
-    useEffect(() => {
         fetch('/api/categories')
         .then(resp => resp.json())
         .then(categories => setCategories(categories))
@@ -51,6 +48,10 @@ function HomePage() {
         setShowOptions(!showOptions)
     }
 
+    const handleAddClick = () => {
+        setNewListing(!newListing)
+    }
+
     const filterListings = () => {
         if(filter !== null) {
         return listings?.map(listing => ({
@@ -67,8 +68,8 @@ function HomePage() {
             <Logo handleOptionClick={handleOptionClick}/>
             {showOptions? <button onClick={handleLogout}>Logout</button> : null}
             <SiteTabBar/>
-            <button>Add New Listing</button>
             {listings?<div className="listings-display">
+            {newListing ? <NewListing handleAddClick={handleAddClick}/> : <button id='add-new' onClick={handleAddClick}>Add New Listing</button>}
                 {listings? mappedListings : 'Loading...'}
             </div> : 'Loading...'}
         </div>
