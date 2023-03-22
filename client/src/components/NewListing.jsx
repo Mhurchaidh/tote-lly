@@ -22,9 +22,29 @@ export default function NewListing({handleAddClick}) {
 
         setFormData((formData) => ({...formData, [name]: value}))
     }
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const config = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+
+        fetch('/api/listings', config)
+        .then(resp => {
+            if(resp.ok) {
+                resp.json().then((user) => setUser(user))
+            }
+            // else resp.json().then((errors) => setErrors(errors))
+        })
+    }
 
     return (
-        <form className="listing-card new-listing">
+        <form className="listing-card new-listing" onSubmit={handleSubmit}>
             <label>Item Name:</label>
             <input 
                 name='name'

@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 const SiteContext = createContext()
 
 function SiteProvider({children}){
-    const [sites, setSites] = useState(null)
+    const [sites, setSites] = useState([])
 
     const context = [sites, setSites]
 

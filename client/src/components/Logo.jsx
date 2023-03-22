@@ -11,7 +11,7 @@ export default function Logo({handleOptionClick}) {
             {logoSwap ? 
             <img className='logo logo-image' src={TotellyLogo} onClick={handleOptionClick}/>
             :
-            <video className='logo' src={Totelly2} width='10%' height='10%' preload='auto' autoPlay muted onEnded={() => setLogoSwap(true)}/>}
+            <video className='logo' src={Totelly2} width='100%' height='100%' preload='auto' autoPlay muted onEnded={() => setLogoSwap(true)}/>}
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { FilterContext } from "../context/filter";
 import { SiteContext } from "../context/site";
 import { SiteTab } from "./SiteTab";
 
-export function SiteTabBar() {
+export default function SiteTabBar() {
 
     const [sites, setSites] = useContext(SiteContext)
     const [_, setFilter] = useContext(FilterContext)
