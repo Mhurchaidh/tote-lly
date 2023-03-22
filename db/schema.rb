@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_19_015728) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_174518) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,6 +97,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_015728) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_user_categories_on_category_id"
+    t.index ["user_id"], name: "index_user_categories_on_user_id"
+  end
+
+  create_table "user_sites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "site_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_user_sites_on_site_id"
+    t.index ["user_id"], name: "index_user_sites_on_user_id"
+  end
+
+  create_table "user_stores", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "store_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_user_stores_on_store_id"
+    t.index ["user_id"], name: "index_user_stores_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

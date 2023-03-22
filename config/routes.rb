@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :user_categories
+  resources :user_stores
+  resources :user_sites
   resources :sold_items
   resources :listing_categories
   resources :store_listings
