@@ -4,15 +4,21 @@ import { UserContext } from "../context/user";
 import SiteTabBar from "./SiteTabBar";
 import Logo from './Logo';
 import { OptionContext } from "../context/option";
+import { ListingContext } from "../context/listing";
 
 function HomePage() {
 
     const [user, setUser] = useContext(UserContext)
     const [showOptions, setShowOptions] = useContext(OptionContext)
+    const [listings, setListings] = useContext(ListingContext);
+
     const navigate = useNavigate();
 
     useEffect(() => {
         navigate('/listings')
+        fetch('/api/listings')
+        .then(resp => resp.json())
+        .then(listings => setListings(listings))
     }, [])
 
     const handleLogout = () => {

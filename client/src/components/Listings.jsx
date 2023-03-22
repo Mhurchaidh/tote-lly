@@ -10,14 +10,6 @@ export default function Listings() {
     const [newListing, setNewListing] = useState(false);
     const [filter, setFilter] = useContext(FilterContext);
 
-
-    useEffect(() => {
-        fetch('/api/listings')
-        .then(resp => resp.json())
-        .then(listings => setListings(listings))
-    }, [])
-
-
     const handleAddClick = () => {
         setNewListing(!newListing)
     }
