@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-  belongs_to :item
+  belongs_to :item, dependent: :destroy
   belongs_to :user
   has_many :sold_items
 

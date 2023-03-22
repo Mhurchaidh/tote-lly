@@ -17,6 +17,7 @@ function HomePage() {
 
     const handleLogout = () => {
         fetch('/api/logout', {method: "DELETE"}).then(setUser(null))
+        setShowOptions(false)
         navigate('/')
     }
 
@@ -35,8 +36,8 @@ function HomePage() {
                 <Outlet/>
             </div>
             <div id='right-field'>
-                <Link to='/sold-items'>Sold</Link>
                 <Link to='listings'>Unsold</Link>
+                <Link to='/sold-items'>Sold</Link>
             </div>
         </div>
     )

@@ -47,7 +47,7 @@
 
 ::-webkit-scrollbar-track {
   border-radius: 10px;
-  background: #612c55b0;
+  background: #612c55dc;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -79,7 +79,7 @@
 
 .listings-display {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
   position: relative;
   max-height: 75vh;
@@ -157,9 +157,14 @@ input {
 
 #homepage {
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 10% 82% 8%;
 }
 
 #center-field {
   margin-top: 8%;
+}
+
+#right-field {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { ListingContext } from "../context/listing"
 
 export default function NewListing({handleAddClick}) {
 
@@ -13,7 +14,9 @@ export default function NewListing({handleAddClick}) {
         date_listed: ''
     }
 
-    const [formData, setFormData] = useState(initialFormData)
+    const [formData, setFormData] = useState(initialFormData);
+
+    const [listings, setListings] = useContext(ListingContext);
 
     const {name, price, description, condition, sold, cost_of_goods, quantity, date_listed} = formData
 
@@ -35,12 +38,9 @@ export default function NewListing({handleAddClick}) {
         }
 
         fetch('/api/listings', config)
-        .then(resp => {
-            if(resp.ok) {
-                resp.json().then((user) => setUser(user))
-            }
-            // else resp.json().then((errors) => setErrors(errors))
-        })
+        .then(resp => resp.json())
+        .then(listing => setListings([...listings, listing]))
+        handleAddClick();
     }
 
     return (
@@ -90,6 +90,7 @@ export default function NewListing({handleAddClick}) {
                 placeholder='...'
                 onChange={handleChange}
             />
+            <button>Submit</button>
             <button id='cancel' onClick={handleAddClick}>Cancel</button>
         </form>
     )
