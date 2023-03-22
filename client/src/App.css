@@ -118,3 +118,23 @@ input {
   position: relative;
   margin: 8% auto 3% auto;
 }
+
+#add-new {
+  align-self: center;
+}
+
+.new-listing {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 1rem;
+}
+
+#description {
+  grid-column: span 2;
+  grid-row: span 3;
+  overflow: wrap;
+}
+
+#cancel {
+  align-self: center;
+}
