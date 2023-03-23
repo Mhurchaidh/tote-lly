@@ -57,6 +57,8 @@ function Item({listing}) {
         <div className="listing-card" key={listing.id}>
             {edit ?
             <form className="listing-card new-listing" onSubmit={handleSubmit}>
+            <label>Sold?</label>
+            <input type='checkbox'/>
             <label>Item Name:</label>
             <input 
                 name='name'

@@ -22,7 +22,8 @@ export default function Listings() {
     } else return listings
     }
 
-    const mappedListings = filterListings().filter(listing => listing.sites.length > 0).filter(listing => listing.item.sold === false)
+    const mappedListings = filterListings().filter(listing => listing.sites.length > 0)
+    .filter(listing => listing.item.sold === false)
     .map(listing => <Item key={listing.id} listing={listing}/>)
 
     return (
