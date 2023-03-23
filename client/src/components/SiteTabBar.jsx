@@ -62,6 +62,7 @@ export default function SiteTabBar() {
         fetch('/api/sites', config)
         .then(resp => resp.json())
         .then(resp => setSites([...sites, resp]))
+        .then(setAddingSite(false))
     }
 
     return (

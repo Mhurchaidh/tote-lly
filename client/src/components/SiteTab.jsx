@@ -45,6 +45,11 @@ export function SiteTab({site}) {
         .then(setEditTab(false))
     }
 
+    const handleDelete = () => {
+        fetch(`/api/sites/${site.id}`, {method: "DELETE"})
+        .then(setSites(sites.filter(s => s.id !== site.id)))
+    }
+
     return (
             <div>
                 {editTab ?  
@@ -63,6 +68,7 @@ export function SiteTab({site}) {
                     />
                     <button>Save</button>
                     <button onClick={() => setEditTab(false)}>Cancel</button>
+                    <button onClick={handleDelete}>Delete</button>
                 </form>
                 : 
                 <button onClick={handleClick}>
