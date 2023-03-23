@@ -4,6 +4,7 @@ import { ListingContext } from "../context/listing"
 function Item({listing}) {
 
     const initialFormData = {
+        sold: listing.item.sold,
         name: listing.item.name,
         quantity: listing.item.quantity,
         price: listing.item.price,
@@ -16,7 +17,7 @@ function Item({listing}) {
     const [edit, setEdit] = useState(false);
     const [formData, setFormData] = useState(initialFormData)
 
-    const {name, quantity, price, cost_of_goods, condition, description} = formData;
+    const {sold, name, quantity, price, cost_of_goods, condition, description} = formData;
 
     const mappedListingSites = listing.sites.map(site => <p key={site.id}>{site.name}</p>)
 
@@ -58,7 +59,11 @@ function Item({listing}) {
             {edit ?
             <form className="listing-card new-listing" onSubmit={handleSubmit}>
             <label>Sold?</label>
-            <input type='checkbox'/>
+            <input type='checkbox'
+                   name='sold'
+                   checked={sold}
+                   onChange={ () => setFormData((formData) => ({...formData, sold: !sold}))}
+            />
             <label>Item Name:</label>
             <input 
                 name='name'
