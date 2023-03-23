@@ -120,7 +120,7 @@ input {
   border-radius: 5px;
 }
 
-#site-tab-bar {
+/* #site-tab-bar {
   display: grid;
   position: relative;
   max-width: min-content;
@@ -128,7 +128,7 @@ input {
   gap: 2rem;
   margin: 0 auto;
   margin-bottom: 1rem;
-}
+} */
 #login-video-logo {
   display: block;
   position: relative;

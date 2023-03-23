@@ -11,7 +11,6 @@ function Login() {
         <div>
             <video id='login-video-logo' src={Totelly} width='20%' height='20%' preload='auto' autoPlay muted/>
             <div className="account-access">
-                {/* <h1>Tote-lly</h1> */}
                 <div>
                     {!newUser ? <LoginForm/> : <SignUpForm/>}
                         {!newUser ? 
