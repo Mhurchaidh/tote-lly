@@ -1,27 +1,43 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { FilterContext } from "../context/filter"
 import { ListingContext } from "../context/listing"
-import Item from './Item';
+import SoldItem from './SoldItem';
+import { Droppable } from 'react-beautiful-dnd';
+import { SoldItemContext } from "../context/solditems";
+import { useNavigate } from "react-router-dom";
+
 
 export default function SoldItems() {
 
     const [filter, setFilter] = useContext(FilterContext)
-    const [listings, setListings] = useContext(ListingContext)
+    const [soldItems, setSoldItems] = useContext(SoldItemContext)
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        fetch('/api/sold_items')
+        .then(resp => resp.json())
+        .then(resp => {setSoldItems(resp)})
+        if(soldItems.length <= 0)
+            navigate('/listings')
+    }, [])
 
     const filterListings = () => {
         if(filter !== null) {
-        return listings?.map(listing => ({
-            ...listing, sites: listing.sites.filter(site => site.name.includes(filter))
-        }))
-    } else return listings
+        return soldItems.filter(item => item.site_sold === filter)
+    } else return soldItems
     }
 
-    const mappedListings = filterListings().filter(listing => listing.sites.length > 0).filter(listing => listing.item.sold === true)
-    .map(listing => <Item key={listing.id} listing={listing}/>)
+    const mappedSoldItems = filterListings().map((item, index) => <SoldItem key={item.id} item={item} index={index}/>)
 
     return (
-        <div className="listings-display">
-            {mappedListings}
-        </div>
+        <Droppable droppableId='drop-listings'>
+                {provided => (
+                    <div className="listings-display" {...provided.droppableProps} ref={provided.innerRef}>
+                        {mappedSoldItems}
+                        {provided.placeholder}
+                    </div>
+                )}
+        </Droppable>
     )
 }

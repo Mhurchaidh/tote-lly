@@ -122,13 +122,15 @@ UserCategory.create(
 )
 
 puts "Generating Items and Listings..."
-30.times do
+60.times do
     item = Item.create(
         name: Faker::Tea.variety,
+        order_number: Faker::Barcode.upc_e,
+        storage_location: Faker::House.room,
         price: Faker::Commerce.price(range: 25.00..150.00),
         description: Faker::Fantasy::Tolkien.poem,
         condition: ['Fair', 'Moderate', 'Good', 'Very Good', 'Like New', 'New'].sample,
-        sold: [true, false].sample,
+        sold: false,
         cost_of_goods: Faker::Commerce.price(range: 1.00..15.00),
         quantity: 1
     )

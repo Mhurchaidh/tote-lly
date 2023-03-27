@@ -48,6 +48,7 @@ export function SiteTab({site}) {
     const handleDelete = () => {
         fetch(`/api/sites/${site.id}`, {method: "DELETE"})
         .then(setSites(sites.filter(s => s.id !== site.id)))
+        .then(setFilter(null))
     }
 
     return (
