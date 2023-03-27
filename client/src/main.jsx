@@ -10,23 +10,33 @@ import { CategoryProvider } from './context/category'
 import { FilterProvider } from './context/filter'
 import { ListingProvider } from './context/listing'
 import { OptionProvider } from './context/option'
+import { DragDropContext } from 'react-beautiful-dnd';
+import { SoldItemProvider } from './context/solditems'
+
+const onDragEnd = result => {
+  console.log(result)
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
         <ListingProvider>
+        <SoldItemProvider>
         <SiteProvider>
           <StoreProvider>
             <CategoryProvider>
               <FilterProvider>
                 <OptionProvider>
-                <App />
+                <DragDropContext onDragEnd={onDragEnd}>
+                  <App />
+                </DragDropContext>
                 </OptionProvider>
               </FilterProvider>
             </CategoryProvider>
           </StoreProvider>
         </SiteProvider>
+        </SoldItemProvider>
         </ListingProvider>
       </UserProvider>
     </BrowserRouter>

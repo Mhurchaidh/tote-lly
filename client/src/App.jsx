@@ -20,6 +20,8 @@ function App() {
     }
   }, []);
 
+ 
+
   return (
     <Routes>
       <Route path='/' element={!user ? <Login/> : <HomePage/>}>

@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :listings
     has_many :items, through: :listings
+    has_many :sold_items, through: :listings
 
     has_many :user_categories
     has_many :categories, through: :user_categories
