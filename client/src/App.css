@@ -80,6 +80,11 @@ input {
   max-height: 100%;
   text-align: center;
   border-radius: 5px;
+  background-color: #272727;
+}
+
+select {
+  background-color: #272727;
 }
 
 #login-video-logo {
@@ -128,12 +133,14 @@ input {
   width: 80%;
   background-color: #272727;
   color: #ecc5a0;
+  border-top-width: 0px;
 }
 
 .sold-button:hover {
   border-color: #272727;
   color: #ecc5a0;
   height: 120%;
+  border-top-width: 0px;
 }
 
 .edit-button {
@@ -142,6 +149,7 @@ input {
   color: #ecc5a0; */
   background-color: #ecc5a0;
   color: #272727;
+  border-top-width: 0px;
 }
 
 .edit-button:hover {
@@ -149,12 +157,14 @@ input {
   color: #474747;
   border-color: #272727;
   height: 120%;
+  border-top-width: 0px;
 }
 
 .delete-button {
   border-radius: 0px 0px 8px 8px;
   background-color: #612c55;
   color: #ecc5a0;
+  border-top-width: 0px;
 }
 
 .delete-button:hover {
@@ -162,6 +172,7 @@ input {
   color: #ecc5a0;
   border-color: #272727;
   height: 120%;
+  border-top-width: 0px;
 }
 
 #option-buttons {

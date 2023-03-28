@@ -17,7 +17,7 @@ export default function CategoryFilter() {
 
     return (
         <select id='category-dropdown' onChange={(e) => setFilteredCategory(e.target.value)}>
-            <option value='all'>Categories</option>
+            <option value='all'>All Categories</option>
             {mappedCategories}
         </select>
     )
