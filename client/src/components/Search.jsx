@@ -7,7 +7,7 @@ export default function Search() {
 
     return (
         <input id='search-bar' 
-               placeholder="Search..."
+               placeholder="- Search by Item Name or Order # -"
                value={searchValue}
                type='text'
                onChange={(e) => setSearchValue(e.target.value)}
