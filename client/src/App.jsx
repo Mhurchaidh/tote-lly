@@ -6,6 +6,7 @@ import Login from './components/Login'
 import HomePage from './components/HomePage'
 import SoldItems from './components/SoldItemsPage'
 import Listings from './components/Listings'
+import Stats from './components/Stats'
 
 function App() {
   const [user, setUser] = useContext(UserContext);
@@ -27,6 +28,7 @@ function App() {
       <Route path='/' element={!user ? <Login/> : <HomePage/>}>
         <Route path='listings' element={<Listings/>}/>
         <Route path='sold-items' element={<SoldItems/>}/>
+        <Route path='/stats' element={<Stats/>}/>
       </Route>
     </Routes>
   )

@@ -141,12 +141,10 @@ puts "Generating Items and Listings..."
         item: item
     )
 
-    3.times do
-        ListingCategory.create(
-            listing: listing,
-            category: Category.all.sample
-        )
-    end
+    ListingCategory.create(
+        listing: listing,
+        category: Category.all.sample
+    )
 
     ListingSite.create(
         listing: listing,

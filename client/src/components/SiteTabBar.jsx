@@ -4,6 +4,8 @@ import { SiteContext } from "../context/site";
 import { SiteTab } from "./SiteTab";
 import styled from 'styled-components';
 import Search from './Search';
+import { Link } from "react-router-dom";
+import CategoryFilter from "./CategoryFilter";
 
 const StyledTabBar = styled.div`
     display: grid;
@@ -26,6 +28,7 @@ export default function SiteTabBar() {
     const [_, setFilter] = useContext(FilterContext)
     const [addingSite, setAddingSite] = useState(false)
     const [formData, setFormData] = useState(initialFormData)
+    const [showStats, setShowStats] = useState(false)
 
     const {name, site_address} = formData;
 
@@ -67,9 +70,9 @@ export default function SiteTabBar() {
     }
 
     return (
-        <StyledTabBar columns={sites.length + 3}>
-            {/* <input id='search-bar' placeholder="Search..."/> */}
-            <Search/>
+        <StyledTabBar columns={sites.length + 5}>
+            {showStats ? <Link to='listings'><button id='hide-stat-button' onClick={() => setShowStats(false)}>Hide Stats</button></Link> : <Link to='stats'><button id='show-stat-button' onClick={() => setShowStats(true)}>Show Stats</button></Link>}
+            {showStats ? null : <Search/>}
                 <button onClick={() => setFilter(null)}>All</button>
                 {listedSites}
                 {addingSite ? 
@@ -93,6 +96,7 @@ export default function SiteTabBar() {
                 </form>
                  : 
                  <button onClick={handleAddSite}>+</button>}
+                 <CategoryFilter/>
         </StyledTabBar>
     )
 }

@@ -61,7 +61,7 @@
   /* border-color: #8f95ff; */
   border-width: 5px;
   /* border-color: #ecc5a0; */
-  border-color: #474747;
+  border-color: #272727;
   height: max-content;
   display: grid;
   grid-template-columns: 1fr;
@@ -126,12 +126,12 @@ input {
   display: grid;
   border-radius: 0px 0px 8px 8px;
   width: 80%;
-  background-color: #474747;
+  background-color: #272727;
   color: #ecc5a0;
 }
 
 .sold-button:hover {
-  border-color: #474747;
+  border-color: #272727;
   color: #ecc5a0;
   height: 120%;
 }
@@ -141,13 +141,13 @@ input {
   /* background-color: #474747;
   color: #ecc5a0; */
   background-color: #ecc5a0;
-  color: #252525;
+  color: #272727;
 }
 
 .edit-button:hover {
   border-color: #ecc5a0;
   color: #474747;
-  border-color: #474747;
+  border-color: #272727;
   height: 120%;
 }
 
@@ -160,7 +160,7 @@ input {
 .delete-button:hover {
   border-color: #612c55;
   color: #ecc5a0;
-  border-color: #474747;
+  border-color: #272727;
   height: 120%;
 }
 
@@ -173,6 +173,8 @@ input {
   width: 20rem;
   height: 1.5rem;
   color: white;
+  background-color: #272727;
+  border-radius: 8px 8px 8px 8px;
 }
 
 #sold-form {
@@ -195,4 +197,46 @@ input {
 .description {
   overflow: auto;
   grid-column: span 2;
+}
+
+.stats {
+  display: grid;
+  position: relative;
+  justify-content: center;
+}
+
+#confirm-delete-button {
+  border-radius: 0px 0px 8px 8px;
+  background-color: #612c55;
+  color: #ecc5a0;
+}
+
+#cancel-delete-button {
+  border-radius: 0px 0px 8px 8px;
+  background-color: #ecc5a0;
+  color: #612c55;
+}
+
+#show-stat-button {
+  background-color: #272727;
+  color: #f3f3f3;
+  border-color: #272727;
+}
+
+#show-stat-button:hover {
+  color: #ecc5a0;
+}
+
+#hide-stat-button {
+  background-color: #f3f3f3;
+  color: #272727;
+  border-color: #272727;
+}
+
+#hide-stat-button:hover {
+  background-color: #dcdcfc;
+}
+
+#category-dropdown {
+  border-radius: 8px 8px 8px 8px;
 }

@@ -5,12 +5,12 @@ export default function NewListing({handleAddClick}) {
 
     const initialFormData = {
         name: '',
-        price: 0.00,
+        price: '',
         description: '',
         condition: '',
         sold: false,
-        cost_of_goods: 0.00,
-        quantity: 0,
+        cost_of_goods: '',
+        quantity: 1,
         date_listed: ''
     }
 
