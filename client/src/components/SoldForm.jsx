@@ -8,15 +8,15 @@ export default function SoldForm({listing, setIsSold}) {
     const initialFormData = {
         listing_id: listing.id,
         state: '',
-        sell_price: 0,
-        shipping_cost: 0,
+        sell_price: '',
+        shipping_cost: '',
         customer_name: '',
         date_sold: '',
         store_sold: '',
         site_sold: listing.sites[0].name,
         // customer_review: '',
         // refunded: false,
-        quantity_sold: 0
+        quantity_sold: 1
     }
 
     const [soldItems, setSoldItems] = useContext(SoldItemContext)
@@ -60,7 +60,7 @@ export default function SoldForm({listing, setIsSold}) {
                 <label>State</label>
                 <input 
                     name='state'
-                    value={state}
+                    value={state.toUpperCase()}
                     placeholder='...'
                     onChange={handleChange}
                     />

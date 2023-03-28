@@ -6,13 +6,15 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { SiteProvider } from './context/site'
 import { StoreProvider } from './context/store'
-import { CategoryProvider } from './context/category'
+import { CategoryProvider } from './context/categories'
 import { FilterProvider } from './context/filter'
 import { ListingProvider } from './context/listing'
 import { OptionProvider } from './context/option'
 import { DragDropContext } from 'react-beautiful-dnd';
 import { SoldItemProvider } from './context/solditems'
 import { SearchProvider } from './context/search'
+import { StatsProvider } from './context/stats'
+import { CategoryFilterProvider } from './context/categoryfilter'
 
 const onDragEnd = result => {
   console.log(result)
@@ -30,9 +32,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <FilterProvider>
                 <OptionProvider>
                   <SearchProvider>
+                    <CategoryFilterProvider>
+                    <StatsProvider>
                 <DragDropContext onDragEnd={onDragEnd}>
                   <App />
                 </DragDropContext>
+                </StatsProvider>
+                </CategoryFilterProvider>
                 </SearchProvider>
                 </OptionProvider>
               </FilterProvider>

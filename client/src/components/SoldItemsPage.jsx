@@ -17,9 +17,9 @@ export default function SoldItems() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('/api/sold_items')
-        .then(resp => resp.json())
-        .then(resp => {setSoldItems(resp)})
+        // fetch('/api/sold_items')
+        // .then(resp => resp.json())
+        // .then(resp => {setSoldItems(resp)})
         if(soldItems.length <= 0)
             navigate('/listings')
     }, [])
