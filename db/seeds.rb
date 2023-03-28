@@ -132,6 +132,7 @@ puts "Generating Items and Listings..."
         condition: ['Fair', 'Moderate', 'Good', 'Very Good', 'Like New', 'New'].sample,
         sold: false,
         cost_of_goods: Faker::Commerce.price(range: 1.00..15.00),
+        date_listed: Faker::Date.between(from: '2023-02-24', to: '2023-03-27'),
         quantity: 1
     )
 

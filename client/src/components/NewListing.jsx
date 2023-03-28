@@ -73,6 +73,12 @@ export default function NewListing({handleAddClick}) {
                 placeholder='...'
                 onChange={handleChange}
             />
+            <label>List Date: </label>
+            <input type='date'
+                   name='date_listed'
+                   value={date_listed}
+                   onChange={handleChange}
+                   />
             <label>Condition:</label>
             <input 
                 id='condition'

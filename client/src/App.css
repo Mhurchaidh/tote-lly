@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -39,7 +39,7 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
   position: relative;
-  max-height: 75vh;
+  max-height: 85vh;
   margin: 0 auto;
   overflow: auto;
   overflow-x: hidden;
@@ -58,12 +58,17 @@
 
 .listing-card {
   border: solid;
-  border-color: #8f95ff;
+  /* border-color: #8f95ff; */
+  border-width: 5px;
+  /* border-color: #ecc5a0; */
+  border-color: #474747;
+  height: max-content;
   display: grid;
   grid-template-columns: 1fr;
   text-align: center;
   border-radius: 8px;
-  background-color: #fafbff;
+  background-color: #dcdcfc;
+
 }
 
 label {
@@ -93,11 +98,11 @@ input {
   gap: 1rem;
 }
 
-#description {
+/* #description {
   grid-column: span 2;
   grid-row: span 3;
   overflow: wrap;
-}
+} */
 
 #cancel {
   align-self: center;
@@ -109,7 +114,7 @@ input {
 }
 
 #center-field {
-  margin-top: 8%;
+  margin-top: 5%;
 }
 
 #right-field {
@@ -119,10 +124,75 @@ input {
 
 .sold-button {
   display: grid;
-  border-radius: 5px 0px 8px 0px;
+  border-radius: 0px 0px 8px 8px;
+  width: 80%;
+  background-color: #474747;
+  color: #ecc5a0;
+}
+
+.sold-button:hover {
+  border-color: #474747;
+  color: #ecc5a0;
+  height: 120%;
+}
+
+.edit-button {
+  border-radius: 0px 0px 8px 8px;
+  /* background-color: #474747;
+  color: #ecc5a0; */
+  background-color: #ecc5a0;
+  color: #252525;
+}
+
+.edit-button:hover {
+  border-color: #ecc5a0;
+  color: #474747;
+  border-color: #474747;
+  height: 120%;
+}
+
+.delete-button {
+  border-radius: 0px 0px 8px 8px;
+  background-color: #612c55;
+  color: #ecc5a0;
+}
+
+.delete-button:hover {
+  border-color: #612c55;
+  color: #ecc5a0;
+  border-color: #474747;
+  height: 120%;
 }
 
 #option-buttons {
   display: grid;
+  grid-template-columns: 1fr max-content 0.5fr;
+}
+
+#search-bar {
+  width: 20rem;
+  height: 1.5rem;
+  color: white;
+}
+
+#sold-form {
+  display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+#listing-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+#sold-form-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.description {
+  overflow: auto;
+  grid-column: span 2;
 }

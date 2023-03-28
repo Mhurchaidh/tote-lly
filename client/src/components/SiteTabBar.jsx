@@ -3,6 +3,7 @@ import { FilterContext } from "../context/filter";
 import { SiteContext } from "../context/site";
 import { SiteTab } from "./SiteTab";
 import styled from 'styled-components';
+import Search from './Search';
 
 const StyledTabBar = styled.div`
     display: grid;
@@ -66,7 +67,9 @@ export default function SiteTabBar() {
     }
 
     return (
-        <StyledTabBar columns={sites.length + 2}>
+        <StyledTabBar columns={sites.length + 3}>
+            {/* <input id='search-bar' placeholder="Search..."/> */}
+            <Search/>
                 <button onClick={() => setFilter(null)}>All</button>
                 {listedSites}
                 {addingSite ? 
