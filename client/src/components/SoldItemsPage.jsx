@@ -5,12 +5,14 @@ import SoldItem from './SoldItem';
 import { Droppable } from 'react-beautiful-dnd';
 import { SoldItemContext } from "../context/solditems";
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../context/search";
 
 
 export default function SoldItems() {
 
     const [filter, setFilter] = useContext(FilterContext)
     const [soldItems, setSoldItems] = useContext(SoldItemContext)
+    const [searchValue, setSearchValue] = useContext(SearchContext)
 
     const navigate = useNavigate()
 
@@ -28,7 +30,9 @@ export default function SoldItems() {
     } else return soldItems
     }
 
-    const mappedSoldItems = filterListings().map((item, index) => <SoldItem key={item.id} item={item} index={index}/>)
+    const mappedSoldItems = filterListings()
+    .filter(listing => listing.item.name.toLowerCase().includes(searchValue.toLowerCase()) || listing.item.order_number.includes(searchValue)).reverse()
+    .map((item, index) => <SoldItem key={item.id} item={item} index={index}/>)
 
     return (
         <Droppable droppableId='drop-listings'>

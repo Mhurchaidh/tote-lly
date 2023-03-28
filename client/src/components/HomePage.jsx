@@ -36,6 +36,7 @@ function HomePage() {
             </div>
             <div id='center-field'>
                 {showOptions? <button onClick={handleLogout}>Logout</button> : null}
+                
                 <SiteTabBar/>
                 <Outlet/>
             </div>

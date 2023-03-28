@@ -83,7 +83,7 @@ export default function EditForm({listing, setEdit}) {
                         <label>Description:</label>
                         <textarea 
                             type='text'
-                            id='description'
+                            className='description'
                             name='description'
                             value={description}
                             placeholder='...'

@@ -12,6 +12,7 @@ import { ListingProvider } from './context/listing'
 import { OptionProvider } from './context/option'
 import { DragDropContext } from 'react-beautiful-dnd';
 import { SoldItemProvider } from './context/solditems'
+import { SearchProvider } from './context/search'
 
 const onDragEnd = result => {
   console.log(result)
@@ -28,9 +29,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <CategoryProvider>
               <FilterProvider>
                 <OptionProvider>
+                  <SearchProvider>
                 <DragDropContext onDragEnd={onDragEnd}>
                   <App />
                 </DragDropContext>
+                </SearchProvider>
                 </OptionProvider>
               </FilterProvider>
             </CategoryProvider>

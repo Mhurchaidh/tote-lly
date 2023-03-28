@@ -32,20 +32,21 @@ function Item({listing, index}) {
                         <SoldForm listing={listing} setIsSold={setIsSold}/>
                         : 
                         <div>
+                            <div id='option-buttons'>
                             <button className="sold-button" onClick={() => setIsSold(true)}>Sell</button>
+                                <button className='edit-button' onClick={handleEdit}>Edit</button>
+                                <button className='delete-button' onClick={handleDelete}>Delete</button>
+                            </div>
                             <p>{listing.item.name}</p>
                             <p>Order Number: {listing.item.order_number}</p>
                             <em>Listing Price: {'$' + listing.item.price}</em>
+                            <p>List Date: {listing.item.date_listed.split('T')[0]}</p>
                             <p>{'Cost of goods: $' + listing.item.cost_of_goods}</p>
                             <p>{listing.item.sold ? 'Sold' : 'Unsold'}</p>
                             <p>{'Condition: ' + listing.item.condition}</p>
                             <p>{'Description: ' + listing.item.description}</p>
                             <p>Storage Location: {listing.item.storage_location}</p>
                             {mappedListingSites}
-                            <div id='option-buttons'>
-                                <button className='edit-button' onClick={handleEdit}>Edit</button>
-                                <button className='delete-button' onClick={handleDelete}>Delete</button>
-                            </div>
                         </div>}
                     </div>
                 )}
