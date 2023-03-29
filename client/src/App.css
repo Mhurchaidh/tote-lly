@@ -1,10 +1,10 @@
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 10px;
-  background: #612c55dc;
+  background: #612c551f;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -43,6 +43,7 @@
   margin: 0 auto;
   overflow: auto;
   overflow-x: hidden;
+  border-radius: 15px 15px 15px 15px;
 }
 
 .logo-image:hover {
@@ -59,7 +60,7 @@
 .listing-card {
   border: solid;
   /* border-color: #8f95ff; */
-  border-width: 5px;
+  border-width: 2px;
   /* border-color: #ecc5a0; */
   border-color: #272727;
   height: max-content;
@@ -68,7 +69,10 @@
   text-align: center;
   border-radius: 8px;
   background-color: #dcdcfc;
-
+  box-shadow: 0px 0px 4px 1px #272727cb;
+  margin-top: 1%;
+  margin-left: 2%;
+  margin-right: 5%;
 }
 
 label {
@@ -85,6 +89,8 @@ input {
 
 select {
   background-color: #272727;
+  color: #f3f3f3;
+  text-align: center;
 }
 
 #login-video-logo {
