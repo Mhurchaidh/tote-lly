@@ -43,7 +43,7 @@
   margin: 0 auto;
   overflow: auto;
   overflow-x: hidden;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 15px;
 }
 
 .logo-image:hover {
@@ -191,7 +191,7 @@ select {
   height: 1.5rem;
   color: white;
   background-color: #272727;
-  border-radius: 8px 8px 8px 8px;
+  border-radius: 8px;
 }
 
 #sold-form {
@@ -255,5 +255,5 @@ select {
 }
 
 #category-dropdown {
-  border-radius: 8px 8px 8px 8px;
+  border-radius: 8px;
 }
