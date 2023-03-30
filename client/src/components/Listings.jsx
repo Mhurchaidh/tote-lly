@@ -3,12 +3,14 @@ import { ListingContext } from '../context/listing';
 import Item from './Item';
 import NewListing from './NewListing';
 import { FilterContext } from '../context/filter';
-import { Droppable } from 'react-beautiful-dnd';
 import { SearchContext } from '../context/search';
 import { SoldItemContext } from '../context/solditems';
 import { StatsContext } from '../context/stats';
 import { Outlet } from 'react-router-dom';
 import { CategoryFilterContext } from '../context/categoryfilter';
+// import { useDrop } from 'react-dnd';
+// import { ItemTypes } from './Constants';
+import { motion } from 'framer-motion';
 
 export default function Listings() {
 
@@ -19,6 +21,19 @@ export default function Listings() {
     const [searchValue, setSearchValue] = useContext(SearchContext);
     const [categoryFilter, setCategoryFilter] = useContext(CategoryFilterContext);
     const [stats, setStats] = useContext(StatsContext);
+
+    // const [{ isOver, canDrop }, drop] = useDrop(
+    //     () => ({
+    //         accept: ItemTypes.CARD,
+    //         drop: () => ,
+    //         collect: (monitor) => ({
+    //             isOver: !!monitor.isOver()
+    //         }),
+    //     }),
+    //     [x, y]
+    // )
+
+    // const 
     
     // useEffect(() => {
     //     fetch('/api/listings')
@@ -64,22 +79,15 @@ export default function Listings() {
     .filter(listing => listing.item.sold === false).reverse()
     .filter(listing => listing.item.name.toLowerCase().includes(searchValue.toLowerCase()) || listing.item.order_number.includes(searchValue))
     .filter(listing => categoryFilter !== 'all' ? listing.categories[0].name.includes(categoryFilter) : listing)
-    .map((listing, index) => <Item key={listing.id} listing={listing} index={index}/>)
+    .map((listing) => <Item key={listing.id} listing={listing}/>)
 
     return (
         <div>
+            <motion.div className='listings-display' whileHover={{overflow: 'auto'}}>
+                {newListing ? <NewListing handleAddClick={handleAddClick}/> : <motion.button id='add-new' onClick={handleAddClick}>Add Listing</motion.button>}
+                {mappedListings}
+            </motion.div>
             <Outlet/>
-        <Droppable droppableId='drop-listings'>
-                {provided => (
-                        <div className='listings-display' {...provided.droppableProps} ref={provided.innerRef}>
-                            {newListing ? <NewListing handleAddClick={handleAddClick}/> : <button id='add-new' onClick={handleAddClick}>Add Listing</button>}
-                            {mappedListings}
-                            <div>
-                                {provided.placeholder}
-                            </div>
-                        </div>
-                )}
-        </Droppable>
         </div>
     )
 }

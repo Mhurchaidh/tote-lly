@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import Search from './Search';
 import { Link } from "react-router-dom";
 import CategoryFilter from "./CategoryFilter";
+import { Droppable } from "react-beautiful-dnd";
+import { motion } from 'framer-motion';
 
 const StyledTabBar = styled.div`
     display: grid;
@@ -73,7 +75,7 @@ export default function SiteTabBar() {
         <StyledTabBar columns={sites.length + 5}>
             {showStats ? <Link to='listings'><button id='hide-stat-button' onClick={() => setShowStats(false)}>Hide Stats</button></Link> : <Link to='stats'><button id='show-stat-button' onClick={() => setShowStats(true)}>Show Stats</button></Link>}
             {showStats ? null : <Search/>}
-                <button onClick={() => setFilter(null)}>All</button>
+                <motion.button onClick={() => setFilter(null)} whileTap={{scale: 0.9}}>All</motion.button>
                 {listedSites}
                 {addingSite ? 
                 <form onSubmit={handleSubmit}>

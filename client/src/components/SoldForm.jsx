@@ -55,7 +55,7 @@ export default function SoldForm({listing, setIsSold}) {
     })
 
     return (
-        <div id='sold-form-container'>
+        <div id='sold-form-container' className="listing-card sell-form">
             <form id='sold-form' onSubmit={handleSubmit}>
                 <label>State</label>
                 <input 
