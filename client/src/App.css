@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -41,7 +41,7 @@
   position: relative;
   max-height: 85vh;
   margin: 0 auto;
-  overflow: auto;
+  overflow: hidden;
   overflow-x: hidden;
   border-radius: 15px;
 }
@@ -63,16 +63,20 @@
   border-width: 2px;
   /* border-color: #ecc5a0; */
   border-color: #272727;
-  height: max-content;
+  height: 30rem;
   display: grid;
   grid-template-columns: 1fr;
   text-align: center;
   border-radius: 8px;
   background-color: #dcdcfc;
   box-shadow: 0px 0px 4px 1px #272727cb;
-  margin-top: 1%;
+  margin-top: 2%;
   margin-left: 2%;
   margin-right: 5%;
+}
+
+.sold-card {
+  height: min-content;
 }
 
 label {
@@ -101,19 +105,30 @@ select {
 
 #add-new {
   align-self: center;
+  display: block;
+  font-size: 15px;
+  border-radius: 50px;
+  align-items: center;
 }
 
 .new-listing {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  height: 100%;
 }
 
-/* #description {
-  grid-column: span 2;
-  grid-row: span 3;
-  overflow: wrap;
-} */
+.sell-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  height: min-content;
+}
+
+.edit-listing {
+  display: grid;
+  height: 100%;
+}
 
 #cancel {
   align-self: center;
@@ -133,19 +148,19 @@ select {
   grid-template-columns: 1fr 1fr;
 }
 
-.sold-button {
-  display: grid;
+#sold-button {
+  display: block;
   border-radius: 0px 0px 8px 8px;
   width: 80%;
+  height: 100%;
   background-color: #272727;
   color: #ecc5a0;
   border-top-width: 0px;
 }
 
-.sold-button:hover {
-  border-color: #272727;
-  color: #ecc5a0;
-  height: 120%;
+#sold-button:hover {
+  color: #272727;
+  background-color: #ecc5a0;
   border-top-width: 0px;
 }
 
@@ -155,6 +170,7 @@ select {
   color: #ecc5a0; */
   background-color: #ecc5a0;
   color: #272727;
+  height: 70%;
   border-top-width: 0px;
 }
 
@@ -162,7 +178,7 @@ select {
   border-color: #ecc5a0;
   color: #474747;
   border-color: #272727;
-  height: 120%;
+  height: 90%;
   border-top-width: 0px;
 }
 
@@ -170,6 +186,7 @@ select {
   border-radius: 0px 0px 8px 8px;
   background-color: #612c55;
   color: #ecc5a0;
+  height: 70%;
   border-top-width: 0px;
 }
 
@@ -177,7 +194,7 @@ select {
   border-color: #612c55;
   color: #ecc5a0;
   border-color: #272727;
-  height: 120%;
+  height: 900%;
   border-top-width: 0px;
 }
 
@@ -213,13 +230,31 @@ select {
 
 .description {
   overflow: auto;
-  grid-column: span 2;
 }
 
 .stats {
   display: grid;
   position: relative;
   justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  border: solid;
+  border-color: black;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+  max-width: 50rem;
+  top: 50%;
+  gap: 1rem;
+}
+
+.stat-title {
+  background-color: white;
+  color: black;
+}
+
+.stat-info {
+  background-color: #272727;
+  color: white;
 }
 
 #confirm-delete-button {

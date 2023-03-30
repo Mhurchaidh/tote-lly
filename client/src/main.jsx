@@ -10,17 +10,18 @@ import { CategoryProvider } from './context/categories'
 import { FilterProvider } from './context/filter'
 import { ListingProvider } from './context/listing'
 import { OptionProvider } from './context/option'
-import { DragDropContext } from 'react-beautiful-dnd';
 import { SoldItemProvider } from './context/solditems'
 import { SearchProvider } from './context/search'
 import { StatsProvider } from './context/stats'
 import { CategoryFilterProvider } from './context/categoryfilter'
+import { DragDropContext } from 'react-beautiful-dnd';
+
 
 const onDragEnd = result => {
   console.log(result)
 }
-
 ReactDOM.createRoot(document.getElementById('root')).render(
+
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
@@ -34,9 +35,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   <SearchProvider>
                     <CategoryFilterProvider>
                     <StatsProvider>
-                <DragDropContext onDragEnd={onDragEnd}>
+                  <DragDropContext>
                   <App />
-                </DragDropContext>
+                  </DragDropContext>
                 </StatsProvider>
                 </CategoryFilterProvider>
                 </SearchProvider>

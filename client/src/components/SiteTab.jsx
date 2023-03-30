@@ -1,6 +1,8 @@
 import { useContext, useState } from "react"
 import { FilterContext } from "../context/filter"
 import { SiteContext } from "../context/site"
+import { Draggable } from "react-beautiful-dnd"
+import { motion } from 'framer-motion'
 
 export function SiteTab({site}) {
 
@@ -72,9 +74,9 @@ export function SiteTab({site}) {
                     <button onClick={handleDelete}>Delete</button>
                 </form>
                 : 
-                <button onClick={handleClick}>
+                <motion.button onClick={handleClick} whileTap={{scale: 0.9}}>
                     {site.name}
-                </button>}
+                </motion.button>}
             </div>
     )
 }

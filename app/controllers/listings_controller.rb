@@ -9,9 +9,21 @@ class ListingsController < ApplicationController
     end
 
     def create
-        item = Item.create!(item_params)
+        item = Item.create!(
+            name: params[:name],
+            order_number: params[:order_number],
+            storage_location: params[:storage_location],
+            price: params[:price],
+            description: params[:description],
+            condition: params[:condition],
+            sold: false,
+            cost_of_goods: params[:cost_of_goods],
+            quantity: params[:quantity],
+            date_listed: params[:date_listed]
+        )
         listing = Listing.create!(item: item, user: @current_user)
-        ListingSite.create!(listing: listing, site: Site.first)
+        ListingSite.create!(listing: listing, site: Site.find_by(name: params[:site]))
+        ListingCategory.create!(listing: listing, category: Category.find_by(name: params[:category]))
         render json: listing, status: :created
     end
 
@@ -23,9 +35,9 @@ class ListingsController < ApplicationController
 
     private 
 
-    def item_params
-        params.permit(:name, :price, :description, :condition, :sold, :cost_of_goods, :quantity, :date_listed)
-    end
+    # def item_params
+    #     params.permit(:name, :price, :description, :condition, :sold, :cost_of_goods, :quantity, :date_listed)
+    # end
 
     def set_listing
         Listing.find(params[:id])

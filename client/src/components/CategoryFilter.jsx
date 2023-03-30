@@ -1,6 +1,7 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect } from "react";
 import { CategoryContext } from "../context/categories";
 import { CategoryFilterContext } from "../context/categoryfilter";
+import { motion } from 'framer-motion';
 
 export default function CategoryFilter() {
 
@@ -16,9 +17,12 @@ export default function CategoryFilter() {
     const mappedCategories = categories?.map(category => <option key={category.id} value={category.name}>{category.name}</option>)
 
     return (
-        <select id='category-dropdown' onChange={(e) => setFilteredCategory(e.target.value)}>
+        <motion.select id='category-dropdown' 
+                       onChange={(e) => setFilteredCategory(e.target.value)}
+                       whileHover={{width: '9rem'}}
+                       >
             <option value='all'>All Categories</option>
             {mappedCategories}
-        </select>
+        </motion.select>
     )
 }

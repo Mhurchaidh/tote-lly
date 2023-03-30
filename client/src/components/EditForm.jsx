@@ -43,7 +43,7 @@ export default function EditForm({listing, setEdit}) {
     }
 
     return (
-        <form className="listing-card new-listing" onSubmit={handleSubmit}>
+        <form className="listing-card edit-listing" onSubmit={handleSubmit}>
                         <label>Item Name:</label>
                         <input 
                             name='name'
