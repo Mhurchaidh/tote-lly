@@ -6,6 +6,12 @@ import { SiteContext } from "../context/site";
 
 export default function NewListing({handleAddClick}) {
 
+    const [listings, setListings] = useContext(ListingContext);
+
+    const [categories, setCategories] = useContext(CategoryContext);
+
+    const [sites, setSites] = useContext(SiteContext);
+
     const initialFormData = {
         name: '',
         order_number: '',
@@ -16,18 +22,13 @@ export default function NewListing({handleAddClick}) {
         cost_of_goods: '',
         quantity: 1,
         date_listed: '',
-        category: '',
+        category: sites[0].name,
         storage_location: '',
-        site: '',
+        site: sites[0].name,
     }
 
     const [formData, setFormData] = useState(initialFormData);
 
-    const [listings, setListings] = useContext(ListingContext);
-
-    const [categories, setCategories] = useContext(CategoryContext);
-
-    const [sites, setSites] = useContext(SiteContext);
 
     const {name, order_number, price, description, condition, sold, cost_of_goods, quantity, date_listed, category, storage_location, site} = formData
 
@@ -74,14 +75,6 @@ export default function NewListing({handleAddClick}) {
                    onChange={handleChange}
                    autoComplete='off'
                    />
-            <label>Quantity</label>
-            <input 
-                name='quantity'
-                value={quantity}
-                placeholder='...'
-                onChange={handleChange}
-                autoComplete='off'
-            />
             <label>Price:</label>
             <input 
                 name='price'
@@ -98,10 +91,6 @@ export default function NewListing({handleAddClick}) {
                 onChange={handleChange}
                 autoComplete='off'
             />
-            <label>Category: </label>
-            <select onChange={handleChange} name='category' value={category}>
-                {mappedCategories}
-            </select>
             <label>List Date: </label>
             <input type='date'
                    name='date_listed'
@@ -109,6 +98,18 @@ export default function NewListing({handleAddClick}) {
                    onChange={handleChange}
                    autoComplete='off'
                    />
+            <label>Quantity</label>
+            <input 
+                name='quantity'
+                value={quantity}
+                placeholder='...'
+                onChange={handleChange}
+                autoComplete='off'
+            />
+            <label>Category: </label>
+            <select onChange={handleChange} name='category' value={category}>
+                {mappedCategories}
+            </select>
             <label>Storage Location: </label>
             <input
                 name='storage_location'

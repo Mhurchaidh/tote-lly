@@ -41,7 +41,7 @@
   position: relative;
   max-height: 85vh;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: auto;
   overflow-x: hidden;
   border-radius: 15px;
 }
@@ -107,7 +107,7 @@ select {
   align-self: center;
   display: block;
   font-size: 15px;
-  border-radius: 50px;
+  border-radius: 8px;
   align-items: center;
 }
 
