@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export default function CategoryFilter() {
 
     const [categories, setCategories] = useContext(CategoryContext);
-    const [filterCategory, setFilteredCategory] = useContext(CategoryFilterContext);
+    const [_, setFilteredCategory] = useContext(CategoryFilterContext);
 
     useEffect(() => {
         fetch('/api/categories')
