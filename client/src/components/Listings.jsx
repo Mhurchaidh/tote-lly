@@ -51,10 +51,10 @@ export default function Listings() {
 
     return (
         <div>
-            <motion.div className='listings-display' whileHover={{overflow: 'auto'}}>
+            <div className='listings-display'>
                 {newListing ? <NewListing handleAddClick={handleAddClick}/> : <motion.button id='add-new' onClick={handleAddClick}>Add Listing</motion.button>}
                 {mappedListings}
-            </motion.div>
+            </div>
             <Outlet/>
         </div>
     )

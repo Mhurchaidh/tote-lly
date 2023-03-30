@@ -11,6 +11,7 @@ function Item({listing}) {
     const [isSold, setIsSold] = useState(false);
     const [listings, setListings] = useContext(ListingContext);
     const [confirmDelete, setConfirmDelete] = useState(false);
+    const [showDetails, setShowDetails] = useState(false);
 
     const mappedListingSites = listing.sites.map(site => <div key={site.id}>{site.name}</div>)
 
@@ -31,7 +32,7 @@ function Item({listing}) {
             isSold? 
             <SoldForm listing={listing} setIsSold={setIsSold}/>
             : 
-            <motion.div className="listing-card" whileHover={{scale: 1.02}}>
+            <motion.div className="listing-card" whileHover={{scale: 1.02}} onMouseEnter={() => setShowDetails(true)} onMouseLeave={() => setShowDetails(false)}>
                 <div id='option-buttons'>
                  <button id="sold-button" onClick={() => setIsSold(true)}>Sell</button>
                     {confirmDelete ? 
@@ -43,17 +44,22 @@ function Item({listing}) {
                       :
                          <button className='delete-button' onClick={() => setConfirmDelete(true)}>Delete</button>}
                  </div>
-                 <div>{listing.item.name}</div>
-                 <div>Order Number: {listing.item.order_number}</div>
+                 <strong style={{fontSize: '20px'}}>{listing.item.name}</strong>
+                 <strong>Order Number: {listing.item.order_number}</strong>
                  <em>Listing Price: {'$' + listing.item.price.toFixed(2)}</em>
                  <div>List Date: {listing.item.date_listed.split('T')[0]}</div>
                  <div>{'Cost of goods: $' + listing.item.cost_of_goods.toFixed(2)}</div>
-                 <div>{listing.item.sold ? 'Sold' : 'Unsold'}</div>
-                 <div>{'Condition: ' + listing.item.condition}</div>
-                 <div className='description'>{'Description: ' + listing.item.description}</div>
-                 <div>Storage Location: {listing.item.storage_location}</div>
-                 {mappedListingSites}
-                  <div>{listing.categories.length >= 1 ? listing.categories[0].name : null}</div>
+                 { showDetails ?
+                    <div>
+                        <div>{listing.item.sold ? 'Sold' : 'Unsold'}</div>
+                        <div>{'Condition: ' + listing.item.condition}</div>
+                        <div className='description'>{'Description: ' + listing.item.description}</div>
+                        {mappedListingSites}
+                        <div>{listing.categories.length >= 1 ? listing.categories[0].name : null}</div>
+                    </div>
+                    :null
+                 }
+                 <strong>Storage Location: {listing.item.storage_location}</strong>
               </motion.div>}
          </div>
     )
