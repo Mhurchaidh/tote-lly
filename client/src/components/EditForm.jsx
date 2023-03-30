@@ -15,8 +15,8 @@ export default function EditForm({listing, setEdit}) {
         description: listing.item.description,
         order_number: listing.item.order_number,
         date_listed: listing.item.date_listed,
-        category: listing.categories[0].name,
-        site: listing.sites[0].name,
+        // category: listing.categories[0].name,
+        // site: listing.sites[0].name,
         storage_location: listing.item.storage_location
     }
 
@@ -102,7 +102,7 @@ export default function EditForm({listing, setEdit}) {
                 onChange={handleChange}
                 autoComplete='off'
             />
-            <label>Category: </label>
+            {/* <label>Category: </label>
             <select onChange={handleChange} name='category' value={category}>
                 {mappedCategories}
             </select>
@@ -112,8 +112,8 @@ export default function EditForm({listing, setEdit}) {
                 value={storage_location}
                 onChange={handleChange}
                 autoComplete='off'
-            />
-            <label>Site: </label>
+            /> */}
+            {/* <label>Site: </label>
             <select onChange={handleChange} name="site" value={site}>
                 {mappedSites}
             </select>
@@ -125,7 +125,7 @@ export default function EditForm({listing, setEdit}) {
                 placeholder='...'
                 onChange={handleChange}
                 autoComplete='off'
-            />
+            /> */}
             <label>Description:</label>
             <textarea 
                 type='text'
