@@ -13,6 +13,7 @@ export default function Search() {
                type='text'
                onChange={(e) => setSearchValue(e.target.value)}
                whileHover={{width: '21rem'}}
+               whileFocus={{width: '21rem'}}
                />
     )
 }

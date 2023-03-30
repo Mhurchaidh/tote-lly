@@ -22,7 +22,7 @@ export default function NewListing({handleAddClick}) {
         cost_of_goods: '',
         quantity: 1,
         date_listed: '',
-        category: sites[0].name,
+        category: categories[0].name,
         storage_location: '',
         site: sites[0].name,
     }

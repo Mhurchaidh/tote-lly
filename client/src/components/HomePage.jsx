@@ -47,8 +47,8 @@ function HomePage() {
                 <Outlet/>
             </div>
             <div id='right-field'>
-                <Link to='listings'><button>Unsold</button></Link>
-                <Link style={{pointerEvents: soldItems.length <= 0 ? 'none' : ''}} to='/sold-items'><button>Sold</button></Link>
+            <button><Link to='listings'>Unsold</Link></button>
+            <button><Link style={{pointerEvents: soldItems.length <= 0 ? 'none' : ''}} to='/sold-items'>Sold</Link></button>
             </div>
         </header>
     )
