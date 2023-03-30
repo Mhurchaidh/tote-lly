@@ -8,8 +8,6 @@ import { SoldItemContext } from '../context/solditems';
 import { StatsContext } from '../context/stats';
 import { Outlet } from 'react-router-dom';
 import { CategoryFilterContext } from '../context/categoryfilter';
-// import { useDrop } from 'react-dnd';
-// import { ItemTypes } from './Constants';
 import { motion } from 'framer-motion';
 
 export default function Listings() {
@@ -21,28 +19,6 @@ export default function Listings() {
     const [searchValue, setSearchValue] = useContext(SearchContext);
     const [categoryFilter, setCategoryFilter] = useContext(CategoryFilterContext);
     const [stats, setStats] = useContext(StatsContext);
-
-    // const [{ isOver, canDrop }, drop] = useDrop(
-    //     () => ({
-    //         accept: ItemTypes.CARD,
-    //         drop: () => ,
-    //         collect: (monitor) => ({
-    //             isOver: !!monitor.isOver()
-    //         }),
-    //     }),
-    //     [x, y]
-    // )
-
-    // const 
-    
-    // useEffect(() => {
-    //     fetch('/api/listings')
-    //     .then(resp => resp.json())
-    //     .then(listings => setListings(listings))
-    //     fetch('/api/sold_items')
-    //     .then(resp => resp.json())
-    //     .then(resp => {setSoldItems(resp)})
-    // }, [])
 
     useEffect(() => {
         calculateStats()
@@ -59,14 +35,6 @@ export default function Listings() {
         }))
     } else return listings
     }
-
-    // const categoryFilteredListings = () => {
-    //     if(categoryFilter !== null) {
-    //         return filterListings().map(listing => ({
-    //             ...listing, categories: listing.categories.filter(category => category.name.includes(categoryFilter))
-    //         }))
-    //     } else return filterListings()
-    // }
 
     const calculateStats = () => {
         const grossIncome = soldItems?.reduce((a,v) => a + v.sell_price, 0)

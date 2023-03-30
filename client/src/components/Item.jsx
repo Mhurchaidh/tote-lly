@@ -3,18 +3,9 @@ import { CategoryContext } from "../context/categories";
 import { ListingContext } from "../context/listing";
 import EditForm from "./EditForm";
 import SoldForm from "./SoldForm";
-// import { ItemTypes } from "./Constants";
-// import { useDrag } from 'react-dnd';
 import { motion } from 'framer-motion';
 
 function Item({listing}) {
-
-    // const [{isDragging}, drag] = useDrag(() => ({
-    //     type: ItemTypes.CARD,
-    //     collect: monitor => ({
-    //         isDragging: !!monitor.isDragging(),
-    //     }),
-    // }))
 
     const [edit, setEdit] = useState(false);
     const [isSold, setIsSold] = useState(false);
