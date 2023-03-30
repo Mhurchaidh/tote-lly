@@ -19,6 +19,7 @@ const StyledTabBar = styled.div`
     margin-bottom: 1rem;
     text-align: center;
 `
+
 export default function SiteTabBar() {
 
     const initialFormData = {
@@ -26,8 +27,8 @@ export default function SiteTabBar() {
         site_address: ''
     }
 
+    const [filter, setFilter] = useContext(FilterContext)
     const [sites, setSites] = useContext(SiteContext)
-    const [_, setFilter] = useContext(FilterContext)
     const [addingSite, setAddingSite] = useState(false)
     const [formData, setFormData] = useState(initialFormData)
     const [showStats, setShowStats] = useState(false)

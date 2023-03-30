@@ -239,22 +239,28 @@ select {
   grid-template-columns: 1fr 1fr;
   border: solid;
   border-color: black;
+  background-color: #272727;
+  border-radius: 8px;
   margin: 0 auto;
   justify-content: center;
   text-align: center;
   max-width: 50rem;
   top: 50%;
   gap: 1rem;
+  align-items: center;
 }
 
 .stat-title {
   background-color: white;
-  color: black;
+  color: #272727;
+  border-radius: 8px;
 }
 
 .stat-info {
   background-color: #272727;
   color: white;
+  text-align: center;
+  border-radius: 8px;
 }
 
 #confirm-delete-button {

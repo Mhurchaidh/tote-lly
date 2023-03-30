@@ -74,7 +74,7 @@ export function SiteTab({site}) {
                     <button onClick={handleDelete}>Delete</button>
                 </form>
                 : 
-                <motion.button onClick={handleClick} whileTap={{scale: 0.9}}>
+                <motion.button onClick={handleClick} whileTap={{scale: 0.9}} whileFocus={{backgroundColor: '#612C55', color: '#ecc5a0'}}>
                     {site.name}
                 </motion.button>}
             </div>
