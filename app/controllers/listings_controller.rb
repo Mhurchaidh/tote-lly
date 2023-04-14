@@ -35,9 +35,9 @@ class ListingsController < ApplicationController
 
     private 
 
-    # def item_params
-    #     params.permit(:name, :price, :description, :condition, :sold, :cost_of_goods, :quantity, :date_listed)
-    # end
+    def item_params
+        params.permit(:name, :order_number, :price, :description, :condition, :sold, :cost_of_goods, :quantity, :date_listed)
+    end
 
     def set_listing
         Listing.find(params[:id])
