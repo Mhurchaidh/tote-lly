@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { ListingContext } from '../context/listing';
 import { SoldItemContext } from '../context/solditems';
 
 export default function SoldItem({item}) { 
