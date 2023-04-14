@@ -21,8 +21,11 @@ export default function Listings() {
     const [stats, setStats] = useContext(StatsContext);
 
     useEffect(() => {
+        // fetch('/api/listings')
+        // .then(resp => resp.json())
+        // .then(listings => setListings(listings))
         calculateStats()
-    }, [listings, soldItems])
+    }, [soldItems])
 
     const handleAddClick = () => {
         setNewListing(!newListing)
