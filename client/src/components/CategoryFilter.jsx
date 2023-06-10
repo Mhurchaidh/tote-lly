@@ -19,7 +19,7 @@ export default function CategoryFilter() {
     return (
         <motion.select id='category-dropdown' 
                        onChange={(e) => setFilteredCategory(e.target.value)}
-                       whileHover={{width: '9rem'}}
+                       whileHover={{borderColor: ""}}
                        >
             <option value='all'>All Categories</option>
             {mappedCategories}
