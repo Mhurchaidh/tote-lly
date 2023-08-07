@@ -82,6 +82,18 @@
   margin-right: 5%;
 }
 
+#card-center {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  justify-self: center;
+  align-self: center;
+  border-radius: 4px;
+  border-width: 1px;
+  box-shadow: 0px 0px 4px 1px #9393ff;
+  border-color: #272727;
+}
+
 .sold-card {
   height: min-content;
 }
@@ -213,9 +225,14 @@ select {
 #search-bar {
   width: 20rem;
   height: 1.5rem;
-  color: white;
-  background-color: var(--t_black);
+  color: var(--t_marlot);
+  background-color: #272727;
   border-radius: 8px;
+}
+
+#search-bar:hover, #search-bar:focus {
+  background-color: #27272734;
+  outline: none;
 }
 
 #sold-form {
