@@ -40,9 +40,9 @@ function HomePage() {
         <header id='homepage'>
             <div id='left-field'>
                 <Logo handleOptionClick={handleOptionClick}/>
+                {showOptions? <button onClick={handleLogout}>Logout</button> : null}
             </div>
             <div id='center-field'>
-                {showOptions? <button onClick={handleLogout}>Logout</button> : null}
                 <SiteTabBar/>
                 <Outlet/>
             </div>
