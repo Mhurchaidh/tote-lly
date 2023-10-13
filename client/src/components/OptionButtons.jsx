@@ -1,4 +1,6 @@
 import { useState, useContext } from "react";
+import Garbage from "../images/Garbage.png";
+import Edit from "../images/Edit.png";
 
 function OptionButtons ({setEdit, setIsSold, listing}) {
     
@@ -18,11 +20,15 @@ function OptionButtons ({setEdit, setIsSold, listing}) {
                     {confirmDelete ? 
                     <button id='confirm-delete-button' onClick={handleDelete}>Confirm</button>
                     : 
-                     <button className='edit-button' onClick={handleEdit}>Edit</button>}
+                    <div className='edit-button' onClick={handleEdit}>
+                        <img src={Edit}/>
+                    </div>}
                      {confirmDelete ? 
                      <button id='cancel-delete-button' onClick={() => setConfirmDelete(false)}>Cancel</button>
                       :
-                         <button className='delete-button' onClick={() => setConfirmDelete(true)}>Delete</button>}
+                      <div className='delete-button' onClick={() => setConfirmDelete(true)}>
+                         <img src={Garbage}/>
+                      </div>}
                  </div>
     )
 }

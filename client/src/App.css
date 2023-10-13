@@ -43,7 +43,7 @@
 
 .listings-display {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1rem;
   position: relative;
   max-height: calc(100vh - 5vh - 3.5rem);
@@ -70,11 +70,12 @@
   border-width: 2px;
   /* border-color: var(--t_peach); */
   border-color: var(--t_black);
-  min-height: 30vh;
+  min-height: 18rem;
   max-height: max-content;
+  max-width: 15vw;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 0.5fr 2.5fr 0.5fr;
+  grid-template-rows: 0.8fr 0.5fr 2fr 0.5fr;
   text-align: center;
   border-radius: 8px;
   background-color: var(--t_periwinkle);
@@ -113,6 +114,10 @@ input {
   background-color: var(--t_black);
 }
 
+#sold-form input {
+  max-height: 50%;
+}
+
 select {
   background-color: var(--t_black);
   color: #f3f3f3;
@@ -142,14 +147,16 @@ select {
 
 .sell-form {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   gap: 1rem;
-  height: min-content;
+  height: fit-content;
+  width: min-content;
 }
 
 .edit-listing {
   display: grid;
   height: 100%;
+  border-style: dashed;
 }
 
 #cancel {
@@ -173,7 +180,7 @@ select {
 #sold-button {
   display: block;
   border-radius: 0px 0px 8px 8px;
-  width: 80%;
+  width: 60%;
   height: 100%;
   background-color: var(--t_black);
   color: var(--t_peach);
@@ -187,36 +194,67 @@ select {
 }
 
 .edit-button {
+  display: flex;
   border-radius: 0px 0px 8px 8px;
   /* background-color: #474747;
   color: var(--t_peach); */
   background-color: var(--t_peach);
   color: var(--t_black);
-  height: 70%;
-  border-top-width: 0px;
+  /* height: 70%;
+  width: 150%; */
+  height: 2rem;
+  width: 2rem;
+  border-color: black;
+  border-width: 0px 2px 2px 2px;
+  border-style: none solid solid solid;
+  font-size: .8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-button img {
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 .edit-button:hover {
   border-color: var(--t_peach);
   color: #474747;
   border-color: var(--t_black);
-  height: 90%;
+  height: 2.2rem;
   border-top-width: 0px;
+  justify-content: center;
+  align-content: center;
 }
 
 .delete-button {
+  display: flex;
   border-radius: 0px 0px 8px 8px;
   background-color: var(--t_marlot);
   color: var(--t_peach);
-  height: 70%;
-  border-top-width: 0px;
+  /* height: 70%;
+  width: 50%; */
+  height: 2rem;
+  width: 2rem;
+  border-color: black;
+  border-width: 0px 2px 2px 2px;
+  border-style: none solid solid solid;
+  font-size: .8rem;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-button img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .delete-button:hover {
   border-color: var(--t_marlot);
   color: var(--t_peach);
   border-color: var(--t_black);
-  height: 900%;
+  height: 2.2rem;
   border-top-width: 0px;
 }
 
