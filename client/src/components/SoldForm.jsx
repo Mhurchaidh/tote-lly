@@ -56,6 +56,7 @@ export default function SoldForm({listing, setIsSold}) {
 
     return (
         <div id='sold-form-container' className="listing-card sell-form">
+            <div>{listing.item.name}</div>
             <form id='sold-form' onSubmit={handleSubmit}>
                 <label>State</label>
                 <input 
@@ -110,7 +111,7 @@ export default function SoldForm({listing, setIsSold}) {
                 <button id='cancel' onClick={() => setIsSold(false)}>Cancel</button>
                 <button>Submit</button>
             </form>
-            <div id='listing-info'>
+            {/* <div id='listing-info'>
                 <div>Item Name: {listing.item.name}</div>
                 <div>Order Number: {listing.item.order_number}</div>
                 <div>Storage Location: {listing.item.storage_location}</div>
@@ -120,7 +121,7 @@ export default function SoldForm({listing, setIsSold}) {
                 <div>Quantity: {listing.item.quantity}</div>
                 <div>Date Listed: {listing.item.date_listed.split('T')[0]}</div>
                 <div className='description'>Description: {listing.item.description}</div>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -126,7 +126,7 @@ export default function EditForm({listing, setEdit}) {
                 onChange={handleChange}
                 autoComplete='off'
             /> */}
-            <label>Description:</label>
+            {/* <label>Description:</label>
             <textarea 
                 type='text'
                 id='description'
@@ -135,7 +135,7 @@ export default function EditForm({listing, setEdit}) {
                 placeholder='...'
                 onChange={handleChange}
                 autoComplete='off'
-            />        
+            />         */}
             <button>Submit</button>
             <button id='cancel' onClick={() => setEdit(false)}>Cancel</button>
         </form>
