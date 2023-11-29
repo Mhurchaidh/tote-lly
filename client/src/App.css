@@ -85,6 +85,11 @@
   margin-right: 5%;
 }
 
+.sold-card {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
 #card-center {
   display: flex;
   overflow: auto;
@@ -96,10 +101,6 @@
   border-width: 1px;
   box-shadow: 0px 0px 4px 1px #9393ff;
   border-color: #272727;
-}
-
-.sold-card {
-  height: min-content;
 }
 
 label {
@@ -170,11 +171,6 @@ select {
 
 #center-field {
   margin-top: 5vh;
-}
-
-#right-field {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 #sold-button {

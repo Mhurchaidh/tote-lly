@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, Link, Outlet } from "react-router-dom";
 import { UserContext } from "../context/user";
 import SiteTabBar from "./SiteTabBar";
@@ -13,6 +13,7 @@ function HomePage() {
     const [showOptions, setShowOptions] = useContext(OptionContext)
     const [soldItems, setSoldItems] = useContext(SoldItemContext)
     const [listings, setListings] = useContext(ListingContext);
+    const [showSold, setShowSold] = useState(false);
 
     const navigate = useNavigate();
 
@@ -48,8 +49,13 @@ function HomePage() {
             </div>
             <div id='right-field'>
             <div id='sold-toggle-buttons'>
-                <button><Link to='listings'>Unsold</Link></button>
-                <button><Link style={{pointerEvents: soldItems.length <= 0 ? 'none' : ''}} to='/sold-items'>Sold</Link></button>
+                {
+                showSold ? 
+                <button onClick={() => setShowSold(false)}><Link to='listings'>Show Unsold</Link></button>
+                :
+                <button onClick={() => setShowSold(true)}><Link style={{pointerEvents: soldItems.length <= 0 ? 'none' : ''}} to='/sold-items'>Show Sold</Link></button>
+                }
+                
             </div>
             </div>
         </header>
